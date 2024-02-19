@@ -4,7 +4,7 @@
 
 - [Description](#description)
 - [Key Features](#key-features)
-- [User Stories](#user-stories)
+- [Gherkin Scenarios](#gherkin-scenarios)
   - [Filter Events by City](#filter-events-by-city)
   - [Show/Hide Event Details](#showhide-event-details)
   - [Specify Number of Events](#specify-number-of-events)
@@ -19,7 +19,7 @@
 
 ## Description
 
-"meetup" is a progressive web app designed to help users discover and organize events in their preferred cities. With features such as filtering events by city, toggling event details, specifying the number of events to display, and offline capability, "meetup" offers a seamless and customizable event browsing experience. Users can easily add shortcuts to the app on their home screens for quick access and visualize event data through interactive charts. Whether users are planning their social gatherings or professional networking events, "meetup" provides the tools they need to make informed decisions and stay connected with their communities.
+"Meetup" is a progressive web app designed to help users discover and organize events in their preferred cities. With features such as filtering events by city, toggling event details, specifying the number of events to display, and offline capability, "Meetup" offers a seamless and customizable event browsing experience. Users can easily add shortcuts to the app on their home screens for quick access and visualize event data through interactive charts. Whether users are planning their social gatherings or professional networking events, "Meetup" provides the tools they need to make informed decisions and stay connected with their communities.
 
 ## Key Features
 
@@ -30,41 +30,98 @@
 - Add an App Shortcut to the Home Screen.
 - Display Charts Visualizing Event Details.
 
-## User Stories
+## Gherkin Scenarios
 
 ### Filter Events by City
-As a user, I should be able to filter events by city, so that I can find events in my preferred location easily.
+```gherkin
+  As a user
+  I want to filter events by city
+  So that I can find events in my preferred location easily
 
+  Scenario: Filtering events by city
+    Given I am on the meetup app homepage
+    When I select a city from the dropdown menu
+    And I click on the "Filter" button
+    Then I should see a list of events in the selected city
+```
 ### Show/Hide Event Details
-As a user, I should be able to show or hide event details, so that I can focus on the information relevant to me without distractions.
+```gherkin
+  As a user
+  I want to show or hide event details
+  So that I can focus on the information relevant to me without distractions
 
+  Scenario: Showing event details
+    Given I am viewing an event on the meetup app
+    When I click on the event card
+    Then I should see the details of the event expanded
+
+  Scenario: Hiding event details
+    Given I am viewing an event with expanded details on the meetup app
+    When I click on the event card again
+    Then I should see the details of the event collapsed
+```
 ### Specify Number of Events
-As a user, I should be able to specify the number of events to display, so that I can control the amount of information shown on the screen based on my preference or device constraints.
+```gherkin
+  As a user
+  I want to specify the number of events to display
+  So that I can control the amount of information shown on the screen based on my preference or device constraints
 
+  Scenario: Specifying number of events
+    Given I am on the meetup app homepage
+    When I enter a specific number in the "Number of Events" input field
+    And I click on the "Apply" button
+    Then I should see the specified number of events displayed on the screen
+```
 ### Use the App When Offline
-As a user, I should be able to use the app when offline, so that I can access event information even when I don't have an internet connection.
+```gherkin
+  As a user
+  I want to use the app when offline
+  So that I can access event information even when I don't have an internet connection
 
+  Scenario: Accessing the app offline
+    Given I have previously visited the meetup app
+    When I lose internet connection
+    Then I should still be able to access previously viewed event information
+```
 ### Add an App Shortcut to the Home Screen
-As a user, I should be able to add a shortcut to the app on my device's home screen, so that I can quickly access the app without having to navigate through a browser or app store.
+```gherkin
+  As a user
+  I want to add a shortcut to the app on my device's home screen
+  So that I can quickly access the app without having to navigate through a browser or app store
 
+  Scenario: Adding an app shortcut to the home screen
+    Given I am using the meetup app on my mobile device
+    When I access the browser menu
+    And I select "Add to Home Screen"
+    Then I should see a shortcut to the meetup app added to my device's home screen
+```
 ### Display Charts Visualizing Event Details
-As a user, I should be able to view charts visualizing event details, so that I can easily understand and analyze event data for better decision-making or planning.
+```gherkin
+  As a user
+  I want to view charts visualizing event details
+  So that I can easily understand and analyze event data for better decision-making or planning
+
+  Scenario: Viewing charts visualizing event details
+    Given I am viewing event details on the meetup app
+    When I scroll down to the "Event Statistics" section
+    Then I should see interactive charts displaying event data
+```
 
 ## Installation
 
-[Instructions for installing and running the Meet App locally or on a server go here.]
+[Instructions for installing and running the Meetup app locally or on a server go here.]
 
 ## Usage
 
-[Instructions for using the Meet App, including any configuration or setup needed, go here.]
+[Instructions for using the Meetup app, including any configuration or setup needed, go here.]
 
 ## Contributing
 
-[Guidelines for contributing to the Meet App project go here.]
+[Guidelines for contributing to the Meetup app project go here.]
 
 ## License
 
-[Information about the license for the Meet App project goes here.]
+[GNU General Public License](LICENSE)
 
 ## Credits
 
