@@ -34,15 +34,27 @@
 
 ### Filter Events by City
 ```gherkin
+Feature: Filtering Events by City
+
   As a user
   I want to filter events by city
   So that I can find events in my preferred location easily
 
-  Scenario: Filtering events by city
-    Given I am on the meetup app homepage
-    When I select a city from the dropdown menu
-    And I click on the "Filter" button
-    Then I should see a list of events in the selected city
+  Scenario: Showing upcoming events from all cities when no city is searched
+    Given user hasn’t searched for any city
+    When the user opens the app
+    Then the user should see a list of upcoming events
+
+  Scenario: Displaying suggestions when searching for a city
+    Given the main page is open
+    When user starts typing in the city textbox
+    Then the user should receive a list of cities (suggestions) that match what they’ve typed
+
+  Scenario: Selecting a city from the suggested list
+    Given user was typing “Berlin” in the city textbox AND the list of suggested cities is showing
+    When the user selects a city (e.g., “Berlin, Germany”) from the list
+    Then their city should be changed to that city (i.e., “Berlin, Germany”) AND the user should receive a list of upcoming events in that city
+
 ```
 ### Show/Hide Event Details
 ```gherkin
