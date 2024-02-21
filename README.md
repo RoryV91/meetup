@@ -5,7 +5,7 @@
 - [Description](#description)
 - [Key Features](#key-features)
 - [User Stories](#user-stories)
-- [Gherkin Scenarios](#gherkin-scenarios)
+- [Scenarios](#scenarios)
   - [Filter Events by City](#filter-events-by-city)
   - [Show/Hide Event Details](#showhide-event-details)
   - [Specify Number of Events](#specify-number-of-events)
@@ -43,7 +43,7 @@
 | Display Charts Visualizing Event Details | As a user, I want to view charts visualizing event details so that I can easily understand and analyze event data for better decision-making or planning, enhancing the comprehensibility and usability of event information. |
 
 
-## Gherkin Scenarios
+## Scenarios
 
 ### Filter Events by City
 ```gherkin
