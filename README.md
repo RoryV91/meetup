@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Description](#description)
+- [Serverless Functions](#serverless-functions)
 - [Key Features](#key-features)
 - [User Stories](#user-stories)
 - [Scenarios](#scenarios)
@@ -20,7 +21,11 @@
 
 ## Description
 
-"Meetup" is a progressive web app designed to help users discover and organize events in their preferred cities. With features such as filtering events by city, toggling event details, specifying the number of events to display, and offline capability, "Meetup" offers a seamless and customizable event browsing experience. Users can easily add shortcuts to the app on their home screens for quick access and visualize event data through interactive charts. Whether users are planning their social gatherings or professional networking events, "Meetup" provides the tools they need to make informed decisions and stay connected with their communities.
+"meetup" is a progressive web app designed to help users discover and organize events in their preferred cities. With features such as filtering events by city, toggling event details, specifying the number of events to display, and offline capability, "Meetup" offers a seamless and customizable event browsing experience. Users can easily add shortcuts to the app on their home screens for quick access and visualize event data through interactive charts. Whether users are planning their social gatherings or professional networking events, "Meetup" provides the tools they need to make informed decisions and stay connected with their communities.
+
+## Serverless Functions
+
+In the meetup app, serverless functions hosted on AWS Lambda play a crucial role in facilitating user authentication and interaction with the Google Calendar API. These functions initiate the OAuth consent flow, handle authentication callbacks, and orchestrate requests to the Google Calendar API on behalf of the user. By utilizing serverless architecture, the meetup ensures efficient scalability, cost optimization, and seamless integration with external services, guaranteeing a secure and responsive user experience throughout.
 
 ## Key Features
 
