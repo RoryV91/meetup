@@ -31,12 +31,17 @@ describe("<Event />", () => {
 		expect(detailsButton).toBeInTheDocument();
 	});
 
-	test("expands to show details when clicked", async () => {
-		await userEvent.click(detailsButton);
-	});
-
-	test("collapses to hide details when clicked again", async () => {
-		await userEvent.click(detailsButton);
-		await userEvent.click(detailsButton);
-	});
+    test("expands to show details when clicked", async () => {
+        await userEvent.click(detailsButton);
+        expect(EventComponent.getByText("Hide Details")).toBeInTheDocument();
+        const description = event.description.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&').replace(/\s+/g, ' ');
+        expect(EventComponent.getByText(new RegExp(description, 'i'))).toBeInTheDocument();
+    });
+    
+    test("collapses to hide details when clicked again", async () => {
+        await userEvent.click(detailsButton);
+        await userEvent.click(detailsButton);
+        expect(EventComponent.getByText("Show Details")).toBeInTheDocument();
+        expect(EventComponent.queryByText(event.description)).not.toBeInTheDocument();
+    });
 });
