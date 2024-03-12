@@ -26,7 +26,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     }, [`${allLocations}`]);
     
     return (
-        <div id="city-search">
+        <div id="city-search" onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}>
           <input
             type="text"
             className="city"
