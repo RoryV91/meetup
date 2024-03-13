@@ -86,6 +86,11 @@
   width: 80%;
 }
 
+.event-info span, .event-info p {
+  display: inline;
+  margin: 3px;
+}
+
 button {
   padding: 10px;
   border-radius: 5px;
