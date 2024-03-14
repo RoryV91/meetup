@@ -24,10 +24,16 @@ function Event({ event }) {
 				</span>
 				<p>{event.location}</p>
 			</div>
-			{showDetails && <p>{event.description}</p>}
-			<button onClick={() => setShowDetails(!showDetails)}>
+			{showDetails && (
+				<div className="event-details">
+					<p>Status: {event.status}</p>
+					<p>{event.description}</p>
+				</div>
+			)}
+			<button className="details-btn" onClick={() => setShowDetails(!showDetails)}>
 				{showDetails ? "Hide Details" : "Show Details"}
 			</button>
+			
 		</li>
 	);
 }
