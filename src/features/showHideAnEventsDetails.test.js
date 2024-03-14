@@ -11,20 +11,18 @@ defineFeature(feature, (test) => {
     let EventDOM;
 
     test('An event element is collapsed by default', ({ given, then }) => {
-
-
         given('an event is displayed on the app', async () => {
             AppComponent = render(<App />);
             AppDOM = AppComponent.container.firstChild;
-            await waitFor(() => AppDOM.querySelector('.event'));
+            await waitFor(() => AppDOM.querySelector('#event-list'));
         });
 
-        then('the event details should be collapsed by default', () => {
+        then('the event details should be collapsed by default', async () => {
             const eventDetails = AppDOM.querySelector('.event-details');
             expect(eventDetails).toBeNull();
         });
     });
-
+    
     test('User can expand an event to see details', ({ given, when, then }) => {
         given('an event is displayed on the app', async () => {
             AppComponent = render(<App />);
