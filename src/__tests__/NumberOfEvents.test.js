@@ -13,6 +13,7 @@ describe("<NumberOfEvents /> component", () => {
 			<NumberOfEvents
 				currentNOE={currentNOE}
 				setCurrentNOE={setCurrentNOE}
+				setErrorAlert={() => {}}
 			/>
 		);
 	});
@@ -22,6 +23,7 @@ describe("<NumberOfEvents /> component", () => {
 			<NumberOfEvents
 				currentNOE={currentNOE}
 				setCurrentNOE={setCurrentNOE}
+				setErrorAlert={() => {}}
 			/>
 		);
 		const textbox = getByLabelText("Number of Events:");
@@ -45,6 +47,7 @@ describe("<NumberOfEvents /> component", () => {
 			<NumberOfEvents
 				currentNOE="32"
 				setCurrentNOE={setCurrentNOE}
+				setErrorAlert={() => {}}
 			/>
 		);
 		const textbox = getByLabelText("Number of Events:");
