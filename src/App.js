@@ -1,7 +1,7 @@
 import CitySearch from "./components/CitySearch";
 import EventList from "./components/EventList";
 import NumberOfEvents from "./components/NumberOfEvents";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { extractLocations, getEvents } from "./api";
 import { InfoAlert, ErrorAlert, WarningAlert } from "./components/Alert";
 
@@ -16,25 +16,26 @@ const App = () => {
 	const [errorAlert, setErrorAlert] = useState("");
 	const [warningAlert, setWarningAlert] = useState("");
 
-	useEffect(() => {
-		if (!navigator.onLine) {
-			setWarningAlert("You are currently offline. Some features may not be available.");
-		} else {
-			setWarningAlert("");
-		}
-
-		fetchData();
-	}, [currentCity, currentNOE]);
-
-	const fetchData = async () => {
+	const fetchData = useCallback(async () => {
 		const allEvents = await getEvents();
 		const filteredEvents =
-			currentCity === "See all cities"
-				? allEvents
-				: allEvents.filter((event) => event.location === currentCity);
+		  currentCity === "See all cities"
+			? allEvents
+			: allEvents.filter((event) => event.location === currentCity);
 		setEvents(filteredEvents.slice(0, currentNOE));
 		setAllLocations(extractLocations(allEvents));
-	};
+	  }, [currentCity, currentNOE]);
+
+	useEffect(() => {
+		if (!navigator.onLine) {
+		  setWarningAlert("You are currently offline. Some features may not be available.");
+		} else {
+		  setWarningAlert("");
+		}
+		  
+		fetchData();
+	  }, [fetchData]);
+
 
 	return (
 		<div className="App">
