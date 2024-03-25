@@ -109,3 +109,20 @@ button {
   width: 250px;
   z-index: 1000;
 }
+
+.charts-container {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+@media (max-width: 1200px) {
+  .charts-container {
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    padding: 0;
+  }
+}
